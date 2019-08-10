@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.urls import path
 from django.contrib import admin
 import eventex.core.views
+from eventex.subscriptions.views import subscribe
 
 urlpatterns = [
     path('', eventex.core.views.home),
+    path('inscricao/', subscribe),
     url(r'^admin/', admin.site.urls),
 ]
