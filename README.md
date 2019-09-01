@@ -15,14 +15,14 @@ Sistema de Eventos
 5. Configure a instância com o .env.
 6. Execute os testes.
 
-´´´console
+```console
 git clone git@github.com:marcelosf/eventex.git wttd
 cd wttd
 python -m venv .wttd
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 python manage.py test
-´´´
+```
 
 ## Como fazer p deploy?
 
