@@ -21,3 +21,6 @@ class SbscriptionModelTest(TestCase):
     
     def test_str(self):
         self.assertEqual('Marcelo', str(self.obj))
+
+    def test_paid_default_false(self):
+        self.assertEqual(False, self.obj.paid)
