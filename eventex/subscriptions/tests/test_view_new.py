@@ -4,7 +4,7 @@ from django.shortcuts import resolve_url as r
 from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
-class SubscribeGet(TestCase):
+class SubscribeNewGet(TestCase):
     def setUp(self):
         self.response = self.client.get(r('subscriptions:new'))
 
@@ -40,7 +40,7 @@ class SubscribeGet(TestCase):
         self.assertIsInstance(form, SubscriptionForm)
 
 
-class SubscribePostValid(TestCase):
+class SubscriptionNewPostValid(TestCase):
     def setUp(self):
         data = dict(name='Marcelo Schneider', cpf='1234567890', 
                 email='marcelo@gmail.com', phone='11-98888-8888')
@@ -57,7 +57,7 @@ class SubscribePostValid(TestCase):
         self.assertTrue(Subscription.objects.exists())
 
 
-class SubscriptionPostInvalid(TestCase):
+class SubscriptionNewPostInvalid(TestCase):
     def setUp(self):
         self.resp = self.client.post(r('subscriptions:new'), {})
 
