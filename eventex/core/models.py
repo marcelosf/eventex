@@ -1,5 +1,7 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
+from eventex.core.managers import KindQuerySet
+
 
 class Speaker(models.Model):
     name = models.CharField('nome', max_length=255)
@@ -29,6 +31,8 @@ class Contact(models.Model):
     speaker = models.ForeignKey('Speaker', on_delete=models.CASCADE, verbose_name='palestrante')
     kind = models.CharField('tipo', max_length=1, choices=KINDS)
     value = models.CharField('valor', max_length=255)
+
+    objects = KindQuerySet.as_manager()
 
     class Meta:
         verbose_name = 'contato'
